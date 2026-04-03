@@ -1,19 +1,17 @@
 global:
-  domain: ALICE_EMAIL.alice-platform.com
+  domain: alice-email.alice-platform.com
 frontend:
   replicas: 2
-  image: ALICE_EMAIL/frontend:latest
+  image: alice-email/frontend:latest
   resources: { requests: { cpu: 100m, memory: 128Mi }, limits: { cpu: 500m, memory: 512Mi } }
 apiGateway:
   replicas: 2
-  image: ALICE_EMAIL/api-gateway:latest
+  image: alice-email/api-gateway:latest
   resources: { requests: { cpu: 200m, memory: 256Mi }, limits: { cpu: 1000m, memory: 1Gi } }
 coreEngine:
   replicas: 2
-  image: ALICE_EMAIL/core-engine:latest
+  image: alice-email/core-engine:latest
   resources: { requests: { cpu: 500m, memory: 512Mi }, limits: { cpu: 2000m, memory: 2Gi } }
-redis:
-  image: redis:7-alpine
 autoscaling:
   enabled: true
   minReplicas: 2
